@@ -19,6 +19,7 @@
           <tr>
             <th><%= 'String' %></th>
             <th><%= 'Boolean'%></th>
+            <th><%= 'Description' %></th>
             <th colspan="2"></th>
           </tr>
           </thead>
@@ -28,6 +29,7 @@
             <tr>
               <td class="align-middle"><%= vaccines.name %></td>
               <td class="align-middle"><%= vaccines.active %></td>
+              <td class="align-middle"><%= vaccines.description %></td>
               <td class="align-middle"><%= link_to 'Edit', edit_admin_vaccines_item_path(vaccines) ,class: 'btn btn-success' %></td>
               <td class="align-middle"><%= link_to 'Destroy', [:admin, vaccines], method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger'  %></td>
             </tr>

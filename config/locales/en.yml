@@ -30,7 +30,25 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  web:
+    main:
+      header: 'Online bookings'
+      seats: "Seats: %{quantity}"
+      register_text: "Register"
+      step0_submit: 'Next'
+
   admin:
+    booking:
+      list:
+        header: 'Bookings'
+        vaccines: 'Vaccine_name'
+        guid: 'Guid'
+        pin: 'Patient pin'
+        step: 'Current step'
+        created: 'Created at'
+        ip: 'IP address'
+        browser: 'Browser_name'
+        os: 'OS name'
     users:
       notices:
         created: 'User was successfully created.'
@@ -44,4 +62,3 @@ en:
         super_admin: 'IsSuperAdmin'
         created_at: 'CreatedAt'
         updated_at: 'UpdatedAt'
-

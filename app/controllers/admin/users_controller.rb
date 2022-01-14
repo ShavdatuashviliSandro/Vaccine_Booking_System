@@ -10,7 +10,7 @@ module Admin
     end
     def edit
       result=@user_service.edit(params[:id])
-      @user= result.user
+      @user = result.user
     end
     def create
       result=@user_service.create(create_user_params)
