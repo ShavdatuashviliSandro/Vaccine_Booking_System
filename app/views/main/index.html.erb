@@ -9,7 +9,7 @@
         <div class="card-body">
           <h5 class="card-title"><strong><%= item.name %></strong></h5>
           <p class="card-text"><%=item.description%></p>
-          <%= link_to I18n.t('web.main.register_text'), new_booking_path(down_case_for_views(item.name)), class: 'btn btn-danger' %>
+          <%= link_to I18n.t('web.main.register_text'), current_step_path(down_case_for_views(item.name)), class: 'btn btn-danger' %>
         </div>
         <div class="card-footer">
           <small class="text-muted">

@@ -7,51 +7,27 @@ class MainController < ApplicationController
   end
   browser = Browser.new("Some User Agent", accept_language: "en-us")
   def current_step
-    @current_vaccine = VaccinesItem.active.where("lower(name) = ?", down_case_for_views(params[:vaccine])).first
-    return redirect_to root_url unless @current_vaccine
+    result= Web::CurrentStepService.call(booking: @booking, params: params)
 
-    @browser = Browser.new(request.env["HTTP_USER_AGENT"])
-    @user_ip = request.remote_ip
-
-    case
-    when @booking && @booking.vaccine.name != @current_vaccine.name
-      web_step = Web::Step0Service.new(@current_vaccine,@browser,@user_ip)
-      web_step.call(nil)
-
-      @booking ||= web_step.booking
-      @current_vaccine, @record = web_step.current_vaccine, web_step.record
-
-      cookies.signed[:booking_uuid] = {value: @booking.guid, expires: 30.minutes.from_now}
-      render :step0
-    when @booking&.pending?
-      web_step = Web::Step0Service.new(@current_vaccine,@browser,@user_ip)
-      web_step.call(@booking)
-
-      @current_vaccine, @record = web_step.current_vaccine, web_step.record
-
-      render :step0
-    when @booking.nil?
-      web_step = Web::Step0Service.new(@current_vaccine,@browser,@user_ip)
-      web_step.call(@booking)
-
-      @booking ||= web_step.booking
-      @current_vaccine, @record = web_step.current_vaccine, web_step.record
-
-      cookies.signed[:booking_uuid] = { value: @booking.guid, expires: 30.minutes.from_now }
-
-      render :step0
-    when current_booking.patient_upserted?
-      render :step1 # bookings form
-    when current_booking.reserved?
-      render :step2 # finish form
+    if result.success? && result.record.present?
+      @current_vaccine, @record = result.current_vaccine, result.record
+      cookies.signed[:booking_uuid] = { value: result.booking.guid, expires: 30.minutes.from_now }
+      render "main/steps/step#{result.render_step}"
     else
       cookies.delete(:booking_uuid)
-      redirect_to root_url
+      redirect_to root_url, notice: result.message
     end
   end
-
   def next_step
-
+    return redirect_to root_url, notice: I18n.t('web.main.session_expired') unless @booking
+    result = Web::NextStepService.call(booking: @booking, params: params)
+    if result.success?
+      return redirect_to root_url, notice: I18n.t('web.main.booking_success') if result.last_step?
+      redirect_to current_step_path(result.booking.vaccine&.name)
+    else
+      @current_vaccine, @record = result.booking.vaccine, result.record
+      render "main/steps/step#{result.current_step}"
+    end
   end
 
   def prev_step

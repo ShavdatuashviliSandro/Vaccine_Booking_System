@@ -1,0 +1,14 @@
+<body>
+<br>
+<br>
+  <p class="align-middle alert-dark">First name: <%= @patient.first_name%></p>
+  <p class="align-middle alert-dark">Last name:<%= @patient.last_name %></p>
+  <p class="align-middle alert-dark">Birth Date:<%= @patient.birth_date %></p>
+  <p class="align-middle alert-dark">Patient Pin:<%= @patient.pin %></p>
+  <p class="align-middle alert-dark">Non resident:<%= @patient.non_resident %></p>
+  <p class="align-middle alert-dark">Mobile phone:<%= @patient.mobile_phone %></p>
+  <p class="align-middle alert-dark">Email:<%= @patient.email %></p>
+  <br>
+  <p class="align-middle"><%= link_to 'back', admin_patients_path  ,class: 'btn btn-success' %></p>
+
+</body>

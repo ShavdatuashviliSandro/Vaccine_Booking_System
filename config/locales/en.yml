@@ -36,6 +36,10 @@ en:
       seats: "Seats: %{quantity}"
       register_text: "Register"
       step0_submit: 'Next'
+      no_vaccine: 'No vaccine'
+      unknown_error: 'Unknown error'
+      session_expired: 'Session expired'
+      booking_success: 'Booking success'
 
   admin:
     booking:
@@ -49,6 +53,7 @@ en:
         ip: 'IP address'
         browser: 'Browser_name'
         os: 'OS name'
+        link: 'Patient Link'
     users:
       notices:
         created: 'User was successfully created.'
@@ -62,3 +67,13 @@ en:
         super_admin: 'IsSuperAdmin'
         created_at: 'CreatedAt'
         updated_at: 'UpdatedAt'
+    patients:
+      first_name: 'First name'
+      last_name: 'Last Name'
+      birth_date: 'Birth Day'
+      pin: 'Pin'
+      non_resident: 'Non Resident'
+      mobile_phone: 'Mobile phone'
+      email: 'Email'
+      list:
+        header: 'Patients'

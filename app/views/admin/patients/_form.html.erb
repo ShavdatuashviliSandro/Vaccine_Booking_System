@@ -1,0 +1,10 @@
+<%=simple_form_for [:admin,@patient] do |f| %>
+  <%= f.input :first_name, disabled: true%>
+  <%= f.input :last_name, disabled: true %>
+  <%= f.input :birth_date, disabled: true %>
+  <%= f.input :pin, disabled: true %>
+  <%= f.input :non_resident, disabled: true %>
+  <%= f.input :mobile_phone %>
+  <%= f.input :email, disabled: true %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
