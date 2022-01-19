@@ -7,7 +7,15 @@ Rails.application.routes.draw do
     resources :vaccines_items
     resources :bookings
     resources :patients
+    resources :business_unit_slots
+    get 'business_units/fetch_cities'
+    get 'business_units/fetch_districts'
+    resources :business_units
+    resources :countries
+    resources :cities
+    resources :districts
   end
+
 
   root to: "main#index"
 

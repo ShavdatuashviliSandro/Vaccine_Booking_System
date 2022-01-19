@@ -1,6 +1,6 @@
-// Visit The Stimulus Handbook for more details 
+// Visit The Stimulus Handbook for more details
 // https://stimulusjs.org/handbook/introduction
-// 
+//
 // This example controller works with specially annotated HTML like:
 //
 // <div data-controller="hello">
@@ -8,11 +8,18 @@
 // </div>
 
 import { Controller } from "stimulus"
+import Rails from "@rails/ujs";
 
 export default class extends Controller {
-  static targets = [ "output" ]
+    static targets = [
+        "country",
+        "city",
+        "district",
+        "bu_unit",
+        "slots"
+    ]
 
-  connect() {
-    this.outputTarget.textContent = 'Hello, Stimulus!'
-  }
+    connect() {
+        console.log('Hello, Stumulus')
+    }
 }

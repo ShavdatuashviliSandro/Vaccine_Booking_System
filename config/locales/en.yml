@@ -77,3 +77,51 @@ en:
       email: 'Email'
       list:
         header: 'Patients'
+    slots:
+      errors:
+        duplicate_slot_error: 'Duplicate or incorect start-end date slot'
+      notices:
+        header: 'Slots'
+        business_unit_name: 'BusinessUnitName'
+        duration: 'Duration'
+        start_date: 'StartDate'
+        end_date: 'EndDate'
+        active: 'IsActive'
+        created_at: 'CreatedAt'
+        updated_at: 'UpdatedAt'
+        deleted_at: 'DeletedAt'
+    business_units:
+      list:
+        country_id: 'Country ID'
+        city_id: 'City ID'
+        district_id: 'District ID'
+        name: 'Name'
+        code: 'Code'
+        active: 'Active'
+        created: 'Business Unit Successfully Created'
+        updated: 'Business Unit Successfully Updated'
+        deleted: 'Business Unit Successfully Deleted'
+    countries:
+      list:
+        name: 'Name'
+        code: 'Code'
+        active: 'Active'
+        created: 'Country Successfully Created'
+        updated: 'Country Successfully Updated'
+        deleted: 'Country Successfully Deleted'
+    cities:
+      list:
+        name: 'Name'
+        code: 'Code'
+        active: 'Active'
+        created: 'City Successfully Created'
+        updated: 'City Successfully Updated'
+        deleted: 'City Successfully Deleted'
+    district:
+      list:
+        name: 'Name'
+        code: 'Code'
+        active: 'Active'
+        created: 'District Successfully Created'
+        updated: 'District Successfully Updated'
+        deleted: 'District Successfully Deleted'

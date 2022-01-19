@@ -1,0 +1,43 @@
+<div class="row">
+  <p id="notice"><%=notice%></p>
+
+  <div class="col">
+    <%= link_to 'New Citie', new_admin_city_path, class: 'btn btn-success' %>
+  </div>
+</div>
+
+<br />
+
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <h1><%= 'Cities' %></h1>
+
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th><%= I18n.t('admin.cities.list.name') %></th>
+            <th><%= I18n.t('admin.cities.list.code')%></th>
+            <th><%= I18n.t('admin.cities.list.active') %></th>
+            <th colspan="2"></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @city.each do |city| %>
+            <tr>
+              <td class="align-middle"><%= city&.name %></td>
+              <td class="align-middle"><%= city&.code %></td>
+              <td class="align-middle"><%= city&.active %></td>
+              <td class="align-middle"><%= link_to 'Edit', edit_admin_city_path(city) ,class: 'btn btn-success' %></td>
+              <td class="align-middle"><%= link_to 'Destroy', [:admin, city], method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger'  %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+        <%==pagy_bootstrap_nav(@pagy)%>
+      </div>
+    </div>
+  </div>
+</div>
