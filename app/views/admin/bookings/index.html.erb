@@ -29,14 +29,14 @@
           <tbody>
           <% @bookings.each do |booking| %>
             <tr>
-              <td class="align-middle"><%= booking.vaccine.name%></td>
-              <td class="align-middle"><%= booking.guid %></td>
-              <td class="align-middle"><%= booking.patient.pin %></td>
-              <td class="align-middle"><%= booking.step_state %></td>
-              <td class="align-middle"><%= booking.created_at %></td>
-              <td class="align-middle"><%= booking.ip_address %></td>
-              <td class="align-middle"><%= booking.browser_name %></td>
-              <td class="align-middle"><%= booking.os_name %></td>
+              <td class="align-middle"><%= booking&.vaccine&.name%></td>
+              <td class="align-middle"><%= booking&.guid %></td>
+              <td class="align-middle"><%= booking&.patient&.pin %></td>
+              <td class="align-middle"><%= booking&.step_state %></td>
+              <td class="align-middle"><%= booking&.created_at %></td>
+              <td class="align-middle"><%= booking&.ip_address %></td>
+              <td class="align-middle"><%= booking&.browser_name %></td>
+              <td class="align-middle"><%= booking&.os_name %></td>
               <td class="align-middle alert-dark"><%= link_to 'Patient information', admin_patient_path(booking.patient.id) %></td>
             </tr>
           <%end %>

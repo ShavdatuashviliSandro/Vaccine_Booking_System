@@ -4,20 +4,10 @@ module Web
 
     def call
       booking = context.booking
-      params = context.params
 
-      result =
-        case
-        when booking.pending?
-          Steps::Step0Service.call(booking: booking, params: step0_params)
-        when booking.patient_upserted?
-          Steps::Step1Service.call(booking: booking, params: params)
-        when booking.reserved?
-          Steps::Step2Service.call(booking: booking, params: params)
+      step_wrapper=Web::StepsWrapper.call(booking:context.booking)
 
-        else
-          # type code here
-        end
+      result=step_wrapper.next_service.call(booking: booking, params: send("step#{step_wrapper.step_number}_params"))
 
       normalize_result(result)
     end

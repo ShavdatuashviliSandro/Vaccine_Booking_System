@@ -1,0 +1,45 @@
+<div class="row">
+  <p id="notice"><%=notice%></p>
+</div>
+
+<br />
+
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <h1><%= I18n.t('admin.booking.list.header') %></h1>
+
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th><%= I18n.t('admin.orders.list.bus_id') %></th>
+            <th><%= I18n.t('admin.orders.list.patient_id') %></th>
+            <th><%= I18n.t('admin.orders.list.order_code') %></th>
+            <th><%= I18n.t('admin.orders.list.order_date')%></th>
+            <th><%= I18n.t('admin.orders.list.finished') %></th>
+            <th><%= I18n.t('admin.orders.list.created_at') %></th>
+            <th><%= I18n.t('admin.orders.list.updated_at') %></th>
+            <th colspan="2"></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td class="align-middle"><%= order&.business_unit_slot_id %></td>
+              <td class="align-middle"><%= order&.patient_id%></td>
+              <td class="align-middle"><%= order&.order_code %></td>
+              <td class="align-middle"><%= order&.order_date %></td>
+              <td class="align-middle"><%= order&.finished %></td>
+              <td class="align-middle"><%= order&.created_at %></td>
+              <td class="align-middle"><%= order&.updated_at %></td>
+            </tr>
+          <%end %>
+          </tbody>
+        </table>
+        <%==pagy_bootstrap_nav(@pagy)%>
+      </div>
+    </div>
+  </div>
+</div>

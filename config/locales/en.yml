@@ -125,3 +125,12 @@ en:
         created: 'District Successfully Created'
         updated: 'District Successfully Updated'
         deleted: 'District Successfully Deleted'
+    orders:
+      list:
+        bus_id: 'Business unit slot ID'
+        patient_id: 'Patient ID'
+        order_code: 'Order Code'
+        order_date: 'Order Date'
+        finished: 'Finished'
+        created_at: 'Created_at'
+        updated_at: 'Updated_at'

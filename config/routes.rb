@@ -14,7 +14,14 @@ Rails.application.routes.draw do
     resources :countries
     resources :cities
     resources :districts
+    resources :orders
   end
+
+  get 'slots/fetch_cities'
+  get 'slots/fetch_districts'
+  get 'slots/fetch_business_units'
+
+  resources :slots, only: :index
 
 
   root to: "main#index"
