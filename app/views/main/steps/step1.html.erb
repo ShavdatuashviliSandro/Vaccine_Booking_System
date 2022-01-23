@@ -50,8 +50,8 @@
       <%= f.button 'Refresh',type:'button' ,data:{
         class: 'form-select',
         action: "click -> slots#fetchSlots",
-        slots_target: "bu_unit"
-      }, class: 'btn btn-dark'%>
+        slots_target: "refresh"
+      }, class: 'btn btn-dark', disabled: true%>
     </div>
 
     <div class="row" data-slots-target="slots"></div>
