@@ -34,5 +34,8 @@ module Web
         :mobile_phone,
         :email)
     end
+    def step1_params
+      context.params.require(:order).permit(:order_date, :business_unit_slot_id)
+    end
   end
 end

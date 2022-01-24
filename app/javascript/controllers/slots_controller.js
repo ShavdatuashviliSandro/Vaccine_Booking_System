@@ -60,6 +60,22 @@ export default class extends Controller {
         });
     }
 
+    selectSlot() {
+        Array.from(document.querySelectorAll('.slot-item')).forEach(function(el){
+            if(el !== event.target){
+                el.classList.remove('btn-warning')
+                document.querySelector('input.step1_submit').classList.add('invisible')
+            }
+        });
+        event.target.classList.toggle("btn-warning")
+        document.querySelector('input#order_order_date').value = event.params['slotTime']
+        document.querySelector('input#order_business_unit_slot_id').value = event.params['slotId']
+
+        if(event.target.classList.contains('btn-warning')) {
+            document.querySelector('input.step1_submit').classList.remove('invisible')
+        }
+    }
+
 
 
 }

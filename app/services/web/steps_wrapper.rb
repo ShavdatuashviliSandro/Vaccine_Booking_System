@@ -17,7 +17,7 @@ module Web
     end
 
     def setup_patient_upserted_step
-      context.next_service = Steps::Step0Service
+      context.next_service = Steps::Step1Service
       context.record = context.booking&.order || Order.new
       context.step_number = 1
     end

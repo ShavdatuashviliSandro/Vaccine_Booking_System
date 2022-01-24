@@ -35,11 +35,12 @@ en:
       header: 'Online bookings'
       seats: "Seats: %{quantity}"
       register_text: "Register"
-      step0_submit: 'Next'
       no_vaccine: 'No vaccine'
       unknown_error: 'Unknown error'
       session_expired: 'Session expired'
       booking_success: 'Booking success'
+      step0_submit: 'Next'
+      step1_submit: 'Next'
 
   admin:
     booking:
