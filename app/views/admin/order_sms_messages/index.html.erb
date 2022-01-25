@@ -1,0 +1,43 @@
+<div class="row">
+  <p id="notice"><%=notice%></p>
+</div>
+
+<br />
+
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <h1><%= I18n.t('admin.messages.list.header') %></h1>
+
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th><%= I18n.t('admin.messages.list.sms_title') %></th>
+            <th><%= I18n.t('admin.messages.list.message') %></th>
+            <th><%= I18n.t('admin.patients.mobile_phone') %></th>
+            <th><%= I18n.t('admin.messages.list.code') %></th>
+            <th><%= I18n.t('admin.messages.list.sms_sent_time') %></th>
+            <th><%= I18n.t('admin.messages.list.sms_created_time') %></th>
+            <th colspan="2"></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @messages.each do |message| %>
+            <tr>
+              <td class="align-middle"><%= message&.title%></td>
+              <td class="align-middle"><%= message&.message %></td>
+              <td class="align-middle"><%= message&.booking.patient.mobile_phone%></td>
+              <td class="align-middle"><%= message&.code %></td>
+              <td class="align-middle"><%= message&.sent_at %></td>
+              <td class="align-middle"><%= message&.created_at %></td>
+            </tr>
+          <%end %>
+          </tbody>
+        </table>
+        <%==pagy_bootstrap_nav(@pagy)%>
+      </div>
+    </div>
+  </div>
+</div>

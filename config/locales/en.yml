@@ -32,16 +32,24 @@
 en:
   web:
     main:
-      header: 'Online bookings'
+      header: 'Online booking'
       seats: "Seats: %{quantity}"
       register_text: "Register"
-      no_vaccine: 'No vaccine'
-      unknown_error: 'Unknown error'
-      session_expired: 'Session expired'
-      booking_success: 'Booking success'
+      session_expired: 'Session Expired'
+      booking_success: 'Booking Success'
       step0_submit: 'Next'
       step1_submit: 'Next'
-
+      step2_submit: 'Finish'
+      step2:
+        full_name: 'Full Name'
+        email: 'Email'
+        pin: 'Pin'
+        mobile_phone: 'Mobile Phone'
+        birth_date: 'Birth Date'
+        order_address: 'Order Address'
+        order_date: 'Order date'
+        vaccine: 'Vaccine'
+        slot_already_reserved: 'This lost already reserved'
   admin:
     booking:
       list:
@@ -135,3 +143,12 @@ en:
         finished: 'Finished'
         created_at: 'Created_at'
         updated_at: 'Updated_at'
+    messages:
+      list:
+        header: 'Messages'
+        sms_title: 'SMS Title'
+        order_code: 'Order Code'
+        sms_sent_time: 'SMS Sent Time'
+        sms_created_time: 'Sms Created Time'
+        message: 'Message'
+        code: 'Order Code'

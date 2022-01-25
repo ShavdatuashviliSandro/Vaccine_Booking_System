@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  booking: one
+  code: MyString
+  title: MyString
+  message: MyString
+  sent_at: 2022-01-26 01:20:10
+
+two:
+  booking: two
+  code: MyString
+  title: MyString
+  message: MyString
+  sent_at: 2022-01-26 01:20:10

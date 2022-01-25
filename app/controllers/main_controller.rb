@@ -1,6 +1,7 @@
 class MainController < ApplicationController
   require 'browser'
   before_action :fetch_booking, only: %i[current_step next_step]
+  before_action :clear_booking
   include DowncaseHelper
   def index
     @vaccine_items = VaccinesItem.active
@@ -22,10 +23,13 @@ class MainController < ApplicationController
     return redirect_to root_url, notice: I18n.t('web.main.session_expired') unless @booking
     result = Web::NextStepService.call(booking: @booking, params: params)
     if result.success?
-      return redirect_to root_url, notice: I18n.t('web.main.booking_success') if result.last_step?
-      redirect_to current_step_path(result.booking.vaccine&.name&.downcase)
+      if result.last_step?
+        cookies.delete(:booking_uuid)
+        return redirect_to root_url, notice: I18n.t('web.main.booking_success')
+      end
+      redirect_to current_step_path(result.booking.vaccine&.name)
     else
-      assign_step_variables({vaccine: result.booking.vaccine, record: result.record})
+      assign_step_variables({ vaccine: result.booking.vaccine, record: result.record })
       render "main/steps/step#{result.current_step}"
     end
   end
@@ -49,5 +53,12 @@ class MainController < ApplicationController
   def assign_step_variables(attrs)
     @current_vaccine=attrs[:vaccine]
     @record=attrs[:record]
+  end
+
+  def clear_booking
+    if @booking&.finished?
+        cookies.delete(:booking_uuid)
+        redirect_to root_url
+    end
   end
 end

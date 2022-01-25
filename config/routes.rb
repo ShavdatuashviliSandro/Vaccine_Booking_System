@@ -1,6 +1,7 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   devise_for :users
-
+  mount Sidekiq::Web => '/sidekiq'
   namespace :admin do
     root to:"main#index"
     resources :users
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
     resources :cities
     resources :districts
     resources :orders
+    resources :order_sms_messages
   end
 
   get 'slots/fetch_cities'
