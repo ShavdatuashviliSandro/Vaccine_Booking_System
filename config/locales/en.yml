@@ -40,6 +40,7 @@ en:
       step0_submit: 'Next'
       step1_submit: 'Next'
       step2_submit: 'Finish'
+      step0_back: 'Reset'
       step2:
         full_name: 'Full Name'
         email: 'Email'

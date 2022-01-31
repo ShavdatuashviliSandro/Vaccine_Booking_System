@@ -14,9 +14,15 @@
           <%= f.input :non_resident, as: :boolean %>
           <%= f.input :mobile_phone %>
           <%= f.input :email %>
+          <br>
           <%= f.submit I18n.t('web.main.step0_submit'), class: 'btn btn-success' %>
+          <br>
+          <br>
+          <%= link_to I18n.t('web.main.step0_back'), prev_step_path, type: 'button', method: :post, class: 'btn btn-danger dark' %>
         <% end %>
       </div>
+
+
 
       <div class="card-footer">
         <small class="text-muted">

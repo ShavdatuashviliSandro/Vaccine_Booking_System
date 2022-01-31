@@ -10,7 +10,7 @@ module Web
       end
 
       def call
-        context.record = context.booking.patient || Patient.new(context.params)
+        context.record = context.booking.patient || Patient.new
 
         ActiveRecord::Base.transaction do
           context.record.update!(context.params)
