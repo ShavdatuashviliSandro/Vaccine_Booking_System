@@ -18,19 +18,16 @@ Rails.application.routes.draw do
     resources :orders
     resources :order_sms_messages
   end
-
   get 'slots/fetch_cities'
   get 'slots/fetch_districts'
   get 'slots/fetch_business_units'
 
   resources :slots, only: :index
 
-
   root to: "main#index"
 
   match 'bookings/:vaccine', to: 'main#current_step', via: :get, as: :current_step
   match 'next_step', to: 'main#next_step', via: :post
   match 'prev_step', to: 'main#prev_step', via: :post
-
-
+  resources :order_cancellations
 end

@@ -90,6 +90,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rails-html-sanitizer (v1.4.2, asdf: 3.0.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="railties (v6.1.4.4, asdf: 3.0.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v13.0.6, asdf: 3.0.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ransack (v2.5.0, asdf: 3.0.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rb-fsevent (v0.11.0, asdf: 3.0.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rb-inotify (v0.10.1, asdf: 3.0.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rbs (v1.4.0, asdf: 3.0.3) [gem]" level="application" />
@@ -162,6 +163,7 @@
         <option value="responders_controller" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
+        <option value="sidekiq:job" />
         <option value="simple_form:install" />
         <option value="system_test" />
         <option value="task" />
@@ -207,6 +209,7 @@
         <option value="responders_controller" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
+        <option value="sidekiq:job" />
         <option value="simple_form:install" />
         <option value="system_test" />
         <option value="task" />

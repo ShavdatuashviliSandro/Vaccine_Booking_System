@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 2022_01_25_212010) do
     t.index ["code"], name: "index_order_sms_messages_on_code"
   end
 
-  create_table "orders", force: :cascade do |t|
+  create_table "order_cancellations", force: :cascade do |t|
     t.bigint "business_unit_slot_id", null: false
     t.bigint "patient_id", null: false
     t.string "order_code", limit: 16, null: false
@@ -151,7 +151,7 @@ ActiveRecord::Schema.define(version: 2022_01_25_212010) do
     t.index ["name"], name: "index_vaccines_items_on_name", unique: true
   end
 
-  add_foreign_key "bookings", "orders"
+  add_foreign_key "bookings", "order_cancellations"
   add_foreign_key "bookings", "patients"
   add_foreign_key "business_unit_slots", "business_units"
   add_foreign_key "business_unit_slots", "users"
@@ -161,6 +161,6 @@ ActiveRecord::Schema.define(version: 2022_01_25_212010) do
   add_foreign_key "cities", "countries"
   add_foreign_key "districts", "cities"
   add_foreign_key "order_sms_messages", "bookings"
-  add_foreign_key "orders", "business_unit_slots"
-  add_foreign_key "orders", "patients"
+  add_foreign_key "order_cancellations", "business_unit_slots"
+  add_foreign_key "order_cancellations", "patients"
 end

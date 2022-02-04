@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <h1><%= I18n.t('admin.booking.list.header') %></h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Business unit</th>
+              <th>Address</th>
+              <th>Order date</th>
+              <th colspan="2"></th>
+              <th><%=@patient %></th>
+            </tr>
+          </thead>
+
+          <tbody>
+          <% @cancellations.each do |order| %>
+            <tr>
+              <td class="align-middle"><%= order.business_unit_slot.business_unit.name%></td>
+              <td class="align-middle"><%= order.business_unit_slot.business_unit.country.name%></td>
+              <td class="align-middle"><%= order.order_date %></td>
+              <td class="align-middle"><%= link_to 'Change', order_cancellations_path(order), method: :delete , class: 'btn btn-danger'  %></td>
+            </tr>
+          <%end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
