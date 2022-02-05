@@ -1,18 +1,14 @@
 class OrderCancellationsController < ApplicationController
   def index
-    @cancellations=Order.where("order_code LIKE ?", "%#{params[:search]}%")
-    # @patient=Order.includes(:patient)
+    @orders=Order.all
   end
 
-  # def destroy
-  #   @cancellations=Order.find(params[:id])
-  #   @cancellations.destroy
-  # end
-
-  def change_status
-    @current_order=Order.find_by(order_code: 1005)
-    @current_order.finished=false
+  def fetch_order_code
+    @orders=Order.find_by(order_code: params[:order_code])
+    if @orders&.patient&.mobile_phone == params[:mobile_phone]
+      render partial: 'form'
+    else
+      render partial: 'error'
+    end
   end
 end
-
-# @cancellations=Order.where("order_code LIKE ?", "%#{params[:search]}%")
