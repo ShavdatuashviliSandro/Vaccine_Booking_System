@@ -31,4 +31,12 @@ Rails.application.routes.draw do
   match 'prev_step', to: 'main#prev_step', via: :post
   resources :order_cancellations, only: :index
   get 'order_cancellations/fetch_order_code'
+
+  resources :order_cancellations do
+    collection do
+      get :create
+    end
+  end
+
+  post 'order_cancellations/call'
 end

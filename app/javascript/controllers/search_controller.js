@@ -6,13 +6,13 @@ export default class extends Controller {
         "order_code",
         "mobile_phone",
         "search",
-        'user_info'
+        'user_info',
+        "order_id"
     ]
 
     connect() {
         console.log('Hello, Search Controller')
     }
-
 
     searchOrderCode(){
         Rails.ajax({
@@ -25,6 +25,14 @@ export default class extends Controller {
         });
     }
 
-
-
+    sendSms(){
+        Rails.ajax({
+            type: "POST",
+            url: "/order_cancellations/call",
+            data: "order_id=" + this.order_idTarget.innerHTML,
+            success: (data) => {
+                alert('SMS sent on your mobile phone.');
+            }
+        });
+    }
 }

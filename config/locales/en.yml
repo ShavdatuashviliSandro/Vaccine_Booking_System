@@ -51,6 +51,22 @@ en:
         order_date: 'Order date'
         vaccine: 'Vaccine'
         slot_already_reserved: 'This lost already reserved'
+    order_cancellation:
+      list:
+        order_cancel: 'Order Status Changed'
+        bu_unit: 'Business Unit'
+        address: 'Address'
+        order_date: 'Order Date'
+        your_order: 'Your Order'
+        send_sms: 'Send SMS'
+        submit_sms: 'Submit SMS:'
+        find_booking: 'Find your booking'
+        select_form_find: 'Select form and find your booking.'
+        order_code: 'Order Code:'
+        mobile_phone: 'Mobile Phone'
+        error_text: '⚠ Something wrong.'
+        error_text_reason: ' There is no order with this order code or mobile phone.'
+        submit: 'Submit'
   admin:
     booking:
       list:
