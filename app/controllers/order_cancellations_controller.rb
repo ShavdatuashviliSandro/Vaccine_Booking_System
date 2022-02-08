@@ -16,18 +16,12 @@ class OrderCancellationsController < ApplicationController
 
   def create
     @order_code_value = session[:passed_variable]
-    @get_value=@order_code_value
-
-    @orders=Order.find_by(order_code: @get_value)
+    @orders=Order.find_by(order_code: @order_code_value)
 
       if @orders.finished?
-        @orders.finished=false
-        @orders.save
-        redirect_to root_url, notice: I18n.t('web.order_cancellation.list.order_cancel')
+        order_cancel
       else
-        @orders.finished=true
-        @orders.save
-        redirect_to root_url, notice: I18n.t('web.order_cancellation.list.order_cancel')
+        order_reactive
       end
   end
 
@@ -37,4 +31,17 @@ class OrderCancellationsController < ApplicationController
     SendVerifySmsWorker.perform_async(sms.id)
   end
 
+  private
+
+  def order_cancel
+    @orders.finished=false
+    @orders.save
+    redirect_to root_url, notice: I18n.t('web.order_cancellation.list.order_cancel')
+  end
+
+  def order_reactive
+    @orders.finished=true
+    @orders.save
+    redirect_to root_url, notice: I18n.t('web.order_cancellation.list.order_cancel')
+  end
 end
