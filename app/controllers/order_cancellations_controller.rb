@@ -21,8 +21,7 @@ class OrderCancellationsController < ApplicationController
     @orders=Order.find_by(order_code: @order_code_value)
 
     @booking=Booking.find_by(order_id: @orders.id)
-    @verify_sms=VerifySmsMessage.find_by(booking_id: @booking.id)
-
+    @verify_sms=VerifySmsMessage.where(booking_id: @booking.id).last
     if @verify_sms_value==@verify_sms.code
       if @orders.finished?
         order_cancel
