@@ -14,7 +14,7 @@ class OrderCancellationsController < ApplicationController
     end
   end
 
-  def create
+  def change_status
     @verify_sms_value=params[:search_sms]
     @order_code_value = session[:passed_variable]
 

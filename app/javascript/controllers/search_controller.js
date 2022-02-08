@@ -40,7 +40,7 @@ export default class extends Controller {
     smsValue(){
         Rails.ajax({
             type: "POST",
-            url: "/order_cancellations/create",
+            url: "/order_cancellations/change_status",
             data: "search_sms=" + this.search_smsTarget.value,
         });
     }
