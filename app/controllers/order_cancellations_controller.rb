@@ -15,14 +15,21 @@ class OrderCancellationsController < ApplicationController
   end
 
   def create
+    @verify_sms_value=params[:search_sms]
     @order_code_value = session[:passed_variable]
+
     @orders=Order.find_by(order_code: @order_code_value)
 
+    @booking=Booking.find_by(order_id: @orders.id)
+    @verify_sms=VerifySmsMessage.find_by(booking_id: @booking.id)
+
+    if @verify_sms_value==@verify_sms.code
       if @orders.finished?
         order_cancel
       else
         order_reactive
       end
+    end
   end
 
   def call

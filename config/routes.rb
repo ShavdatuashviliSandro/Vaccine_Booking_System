@@ -39,4 +39,5 @@ Rails.application.routes.draw do
   end
 
   post 'order_cancellations/call'
+  post 'order_cancellations/create'
 end

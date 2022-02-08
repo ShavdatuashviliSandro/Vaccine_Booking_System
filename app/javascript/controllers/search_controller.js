@@ -7,7 +7,8 @@ export default class extends Controller {
         "mobile_phone",
         "search",
         'user_info',
-        "order_id"
+        "order_id",
+        'search_sms'
     ]
 
     connect() {
@@ -35,4 +36,13 @@ export default class extends Controller {
             }
         });
     }
+
+    smsValue(){
+        Rails.ajax({
+            type: "POST",
+            url: "/order_cancellations/create",
+            data: "search_sms=" + this.search_smsTarget.value,
+        });
+    }
+
 }

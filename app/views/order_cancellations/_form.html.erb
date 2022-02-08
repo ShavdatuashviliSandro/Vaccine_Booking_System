@@ -30,14 +30,12 @@
   </div>
 </div>
 <br>
-<div class="container d-inline row">
+<div class="container d-inline row " data-controller="search">
   <%= form_with url: false do |f|%>
     <div class="col-2  d-inline-block">
       <label class="h5 text-black"><%= I18n.t('web.order_cancellation.list.submit_sms')%></label>
-      <%=f.text_field :mobile_sms, class: 'form-control'%>
+      <%=f.text_field :search_sms,class: 'form-control', data:{search_target:'search_sms'}%>
     </div>
-    <div class="col d-inline-block">
-      <%= link_to I18n.t('web.order_cancellation.list.submit'), order_cancellations_path, class: 'btn btn-success', method: :post, data: { confirm: 'Change order status?' }%>
-    </div>
+    <button type="button" class="btn btn-success" data-action="click->search#smsValue" data-search-target="search_sms">Submit</button>
   <% end %>
 </div>
