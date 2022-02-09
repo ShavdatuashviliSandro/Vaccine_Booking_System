@@ -24,11 +24,8 @@ class OrderCancellationsController < ApplicationController
     @verify_sms=VerifySmsMessage.where(booking_id: @booking.id).last.code
 
     if @verify_sms_value==@verify_sms
-      if @orders.finished?
-        order_cancel
-      else
-        order_reactive
-      end
+      return order_cancel if @orders.finished?
+      order_reactive
     end
   end
 
