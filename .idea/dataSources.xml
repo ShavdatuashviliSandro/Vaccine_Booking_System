@@ -35,5 +35,12 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/vac_booking_system_development</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="vac_booking_system_development@localhost [2]" uuid="18c6499e-040d-4fbb-a788-90b8aae2030a">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/vac_booking_system_development</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
