@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin - VacBookingSystem</title>
+  <title>Admin - Vaccine Booking</title>
+  <link rel="icon" href="https://cdn3.vectorstock.com/i/1000x1000/66/67/heart-care-logo-vector-35756667.jpg" type="image/x-icon">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
@@ -48,6 +49,9 @@
       </li>
       <li class="nav-item">
         <%= link_to 'Messages', admin_order_sms_messages_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item position-absolute end-0">
+        <i class="bi bi-door-closed"><%= button_to "🚪 გასვლა", destroy_user_session_path, method: :delete, class: 'btn btn-danger'  %></i>
       </li>
     </ul>
   </div>

@@ -1,5 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" href="https://cdn3.vectorstock.com/i/1000x1000/66/67/heart-care-logo-vector-35756667.jpg" type="image/x-icon">
+  <title>Vaccine Booking - Book your vaccine</title>
+</head>
+
+<body>
 <div class="row">
-  <h1><%= I18n.t('web.main.header')%></h1>
+  <h1><%= I18n.t('web.main.header') %></h1>
 </div>
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -8,7 +17,7 @@
       <div class="card h-100">
         <div class="card-body">
           <h5 class="card-title"><strong><%= item.name %></strong></h5>
-          <p class="card-text"><%=item.description%></p>
+          <p class="card-text"><%= item.description %></p>
           <%= link_to I18n.t('web.main.register_text'), current_step_path(down_case_for_views(item.name)), class: 'btn btn-danger' %>
         </div>
         <div class="card-footer">
@@ -27,3 +36,5 @@
     <%= link_to 'My booking', order_cancellations_path, class: 'btn btn-warning' %>
   </div>
 </div>
+</body>
+</html>
